@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
-import { computed, ref } from '../src'
-
-// const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+import { expectTypeOf } from 'expect-type'
+import { isRef, ref as vueRef } from '@vue/reactivity'
+import { computed, customRef, ref, shallowRef, unref } from '../src'
 
 test('ref', () => {
   const foo = ref()
@@ -25,8 +25,13 @@ test('computed', () => {
   count.set(1)
   expect(double()).toBe(2)
 
-  // @ts-expect-error without set property
+  expectTypeOf(double.set).toBeNever()
   expect(double.set).toBeUndefined()
+
+  // @ts-expect-error set is never
+  expect(() => double.set()).toThrowErrorMatchingInlineSnapshot(
+    '"double.set is not a function"'
+  )
 
   expect(double.effect).not.toBeUndefined()
 })
@@ -49,4 +54,72 @@ test('writable computed', () => {
   double.set(10)
   expect(count()).toBe(5)
   expect(double()).toBe(10)
+})
+
+test('shallowRef', () => {
+  const foo = shallowRef()
+  expect(foo()).toBe(undefined)
+
+  const bar = shallowRef<number | undefined>(1)
+  expect(bar()).toBe(1)
+  bar.set(2)
+  expect(bar()).toBe(2)
+
+  bar.set(undefined)
+  expect(bar()).toBe(undefined)
+})
+
+test('customRef', () => {
+  let value = 10
+  const number = customRef((track, trigger) => ({
+    get() {
+      track()
+      return value
+    },
+    set(newValue) {
+      trigger()
+      value = newValue
+    },
+  }))
+  expect(number()).toBe(10)
+  number.set(2)
+  expect(number()).toBe(2)
+})
+
+test('isRef', () => {
+  const foo = ref()
+  expect(isRef(foo)).toBe(true)
+  expect(isRef(1)).toBe(false)
+  expect(
+    isRef(() => {
+      //
+    })
+  ).toBe(false)
+})
+
+test('unref', () => {
+  const foo = ref('hello')
+  expect(unref(foo)).toBe('hello')
+  expect(unref(1)).toBe(1)
+})
+
+test('typeof', () => {
+  expect(typeof ref()).toBe('function')
+  expect(typeof vueRef()).toBe('object')
+})
+
+test('in operator', () => {
+  expect('value' in ref()).toBe(true)
+})
+
+test('ownKeys', () => {
+  expect(Object.keys(ref())).toMatchInlineSnapshot(`
+    [
+      "__v_isShallow",
+      "dep",
+      "__v_isRef",
+      "_rawValue",
+      "_value",
+    ]
+  `)
 })

@@ -1,69 +1,59 @@
-import { computed as vueComputed, ref as vueRef } from 'vue'
-import type {
-  ComputedGetter,
-  DebuggerOptions,
-  ReactiveEffect,
-  Ref,
-  UnwrapRef,
-  WritableComputedOptions,
-} from 'vue'
+import {
+  computed as vueComputed,
+  customRef as vueCustomRef,
+  ref as vueRef,
+  shallowRef as vueShallowRef,
+} from '@vue/reactivity'
+import type { Ref } from '@vue/reactivity'
 
-function toFunctional<T>(
-  raw: Ref<any>,
-  readonly: boolean,
-  keys: string[] = []
-): T {
-  const fn: FunctionalRef<any> = () => raw.value
-  if (!readonly)
-    fn.set = (value) => {
-      raw.value = value
-    }
-  for (const key of keys) {
-    ;(fn as any)[key] = (raw as any)[key]
-  }
-  return fn as any
-}
+export * from '@vue/reactivity'
 
-export type ReadonlyFunctionalRef<T> = () => UnwrapRef<T>
-export type WriteableFunctionalRef<T> = {
-  set: (value: UnwrapRef<T>) => void
-}
-export type FunctionalRef<T> = ReadonlyFunctionalRef<T> &
-  WriteableFunctionalRef<T>
+function toFunctional(raw: Ref<any>, readonly: boolean): any {
+  const fn = () => raw.value
 
-export function ref<T extends object>(
-  value: T
-): [T] extends [Ref] ? T : FunctionalRef<UnwrapRef<T>>
-export function ref<T = any>(value: T): FunctionalRef<T>
-export function ref<T = any>(): FunctionalRef<T | undefined>
-export function ref<T>(value?: T): any {
-  return toFunctional(vueRef(value), false)
-}
+  const proxyKeys = [
+    'construct',
+    'defineProperty',
+    'deleteProperty',
+    'getOwnPropertyDescriptor',
+    'getPrototypeOf',
+    'has',
+    'isExtensible',
+    'ownKeys',
+    'preventExtensions',
+    'setPrototypeOf',
+  ] as const
 
-export interface FunctionalComputedRef<T> extends ReadonlyFunctionalRef<T> {
-  readonly effect: ReactiveEffect<T>
-}
-
-export type WritableFunctionalComputedRef<T> = FunctionalComputedRef<T> &
-  WriteableFunctionalRef<T>
-
-export function computed<T>(
-  getter: ComputedGetter<T>,
-  debugOptions?: DebuggerOptions
-): FunctionalComputedRef<T>
-export function computed<T>(
-  options: WritableComputedOptions<T>,
-  debugOptions?: DebuggerOptions
-): WritableFunctionalComputedRef<T>
-export function computed<T>(
-  getter: ComputedGetter<T> | WritableComputedOptions<T>,
-  debugOptions?: DebuggerOptions
-): any {
-  const raw = vueComputed(getter as any, debugOptions)
-  const fn: FunctionalComputedRef<T> = toFunctional(
-    raw,
-    typeof getter === 'function',
-    ['effect']
+  const handlers = Object.fromEntries(
+    proxyKeys.map((key) => [
+      key,
+      (target: any, ...args: any[]) => (Reflect[key] as any)(raw, ...args),
+    ])
   )
-  return fn
+
+  return new Proxy(fn, {
+    ...handlers,
+    get(target, key, receiver) {
+      if (!readonly && key === 'set') {
+        return (value: any) => (raw.value = value)
+      }
+      return Reflect.get(raw, key, receiver)
+    },
+    set(target, key, newValue, receiver) {
+      if (key === 'set') return false
+      return Reflect.set(raw, key, newValue, receiver)
+    },
+  })
 }
+
+export const ref: typeof vueRef = ((value: any) =>
+  toFunctional(vueRef(value), false)) as any
+
+export const computed: typeof vueComputed = (getter: any, debugOptions: any) =>
+  toFunctional(vueComputed(getter, debugOptions), typeof getter === 'function')
+
+export const shallowRef: typeof vueShallowRef = ((value: any): any =>
+  toFunctional(vueShallowRef(value), false)) as any
+
+export const customRef: typeof vueCustomRef = ((value: any): any =>
+  toFunctional(vueCustomRef(value), false)) as any
