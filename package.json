@@ -11,8 +11,11 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./macros-global": "./macros-global.d.ts"
   },
   "publishConfig": {
     "access": "public"
@@ -30,7 +33,7 @@
   },
   "devDependencies": {
     "@sxzz/eslint-config-prettier": "^2.4.1",
-    "@sxzz/eslint-config-ts": "^2.4.1",
+    "@sxzz/eslint-config-vue": "^2.4.1",
     "@types/node": "*",
     "@vue/reactivity": "^3.2.38",
     "bumpp": "^8.2.1",
