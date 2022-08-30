@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json,.md",
     "lint:fix": "pnpm run lint --fix",
-    "build": "tsup && tsx scripts/postbuild.mts",
+    "build": "tsup",
     "test": "vitest",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"
@@ -35,10 +35,8 @@
     "bumpp": "^8.2.1",
     "eslint": "^8.23.0",
     "eslint-define-config": "^1.6.0",
-    "fast-glob": "^3.2.11",
     "prettier": "^2.7.1",
     "tsup": "^6.2.3",
-    "tsx": "^3.8.2",
     "typescript": "^4.8.2",
     "vitest": "^0.22.1",
     "vue": "^3.2.37"
