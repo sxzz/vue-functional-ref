@@ -6,6 +6,7 @@ import {
   ref as vueRef,
   shallowRef as vueShallowRef,
   toRef as vueToRef,
+  toRefs as vueToRefs,
 } from '@vue/reactivity'
 
 export * from '@vue/reactivity'
@@ -74,3 +75,12 @@ export const readonly: typeof vueReadonly = (target: any): any =>
 
 export const toRef: typeof vueToRef = (obj: any, key: string): any =>
   toFunctional(vueToRef(obj, key), false)
+
+export const toRefs: typeof vueToRefs = (obj: any): any => {
+  const refs = vueToRefs(obj)
+  if (typeof refs !== 'object') return refs
+  for (const key of Object.keys(refs)) {
+    refs[key] = toFunctional(refs[key], false)
+  }
+  return refs
+}
