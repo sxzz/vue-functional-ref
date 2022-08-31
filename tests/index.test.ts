@@ -6,9 +6,11 @@ import {
   customRef,
   isReadonly,
   isRef,
+  reactive,
   readonly,
   ref,
   shallowRef,
+  toRef,
   unref,
 } from '../src'
 import type * as proxyType from '@vue/reactivity'
@@ -78,6 +80,16 @@ test('shallowRef', () => {
 
   bar.set(undefined)
   expect(bar()).toBe(undefined)
+})
+
+test('toRef', () => {
+  const obj = reactive({ key: 'value' })
+  const key = toRef(obj, 'key')
+
+  expect(key()).toBe('value')
+
+  key.set('new value')
+  expect(obj.key).toBe('new value')
 })
 
 test('customRef', () => {

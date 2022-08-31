@@ -5,8 +5,8 @@ import {
   readonly as vueReadonly,
   ref as vueRef,
   shallowRef as vueShallowRef,
+  toRef as vueToRef,
 } from '@vue/reactivity'
-import type { Ref } from '@vue/reactivity'
 
 export * from '@vue/reactivity'
 
@@ -14,7 +14,9 @@ function toRawRef(raw: any): any {
   return raw.__raw_ref ? toRawRef(raw.__raw_ref) : raw
 }
 
-function toFunctional(raw: Ref<any>, readonly: boolean): any {
+function toFunctional(raw: any, readonly: boolean): any {
+  if (!isRef(raw)) return raw
+
   const fn = () => raw.value
 
   const proxyKeys = [
@@ -67,9 +69,8 @@ export const shallowRef: typeof vueShallowRef = ((value: any): any =>
 export const customRef: typeof vueCustomRef = ((value: any): any =>
   toFunctional(vueCustomRef(value), false)) as any
 
-export const readonly: typeof vueReadonly = (target: any): any => {
-  if (!isRef(target)) {
-    return vueReadonly(target)
-  }
-  return toFunctional(vueReadonly((target as any).__raw_ref), true)
-}
+export const readonly: typeof vueReadonly = (target: any): any =>
+  toFunctional(vueReadonly((target as any).__raw_ref), true)
+
+export const toRef: typeof vueToRef = (obj: any, key: string): any =>
+  toFunctional(vueToRef(obj, key), false)
