@@ -2,6 +2,8 @@
 
 [![Unit Test](https://github.com/sxzz/vue-functional-ref/actions/workflows/unit-test.yml/badge.svg)](https://github.com/sxzz/vue-functional-ref/actions/workflows/unit-test.yml)
 
+Functional-style refs for Vue. Inspired by [@antfu](https://github.com/antfu).
+
 ## Install
 
 ```bash
