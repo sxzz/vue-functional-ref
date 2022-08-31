@@ -8,6 +8,57 @@
 npm i vue-functional-ref
 ```
 
+## Usage
+
+Support Vite, Rollup and esbuild
+
+```ts
+import VueFunctionalRef from 'vue-functional-ref/vite'
+// 'vue-functional-ref/rollup' for Rollup
+// 'vue-functional-ref/esbuild' for esbuild
+
+export default {
+  plugins: [VueFunctionalRef()],
+}
+```
+
+### Ref
+
+```vue
+<script setup>
+import { ref } from 'vue'
+const count = ref(1)
+count.set(10)
+
+console.log(count())
+</script>
+```
+
+### Computed
+
+```vue
+<script setup>
+import { computed, ref } from 'vue'
+const count = ref(1)
+const double = computed(() => count() * 2)
+
+console.log(double() === 2) // true
+console.log(double.set === undefined) // true
+</script>
+```
+
+### TypeScript Support
+
+```jsonc
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "types": ["vue-functional-ref/macros-global" /* ... */]
+  }
+}
+```
+
 ## Sponsors
 
 <p align="center">
