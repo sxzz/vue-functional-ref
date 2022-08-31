@@ -149,6 +149,12 @@ test('readonly', () => {
   expect(() => foo.set()).toThrowErrorMatchingInlineSnapshot(
     '"foo.set is not a function"'
   )
+
+  const obj = readonly({ foo: 'bar' })
+  expect(obj).toStrictEqual({ foo: 'bar' })
+  expectTypeOf(obj).toEqualTypeOf<{
+    readonly foo: string
+  }>()
 })
 
 test('typeof', () => {

@@ -12,7 +12,7 @@ import {
 export * from '@vue/reactivity'
 
 function toRawRef(raw: any): any {
-  return raw.__raw_ref ? toRawRef(raw.__raw_ref) : raw
+  return raw?.__raw_ref ? toRawRef(raw.__raw_ref) : raw
 }
 
 function toFunctional(raw: any, readonly: boolean): any {
@@ -59,19 +59,19 @@ function toFunctional(raw: any, readonly: boolean): any {
 }
 
 export const ref: typeof vueRef = ((value: any) =>
-  toFunctional(vueRef(value), false)) as any
+  toFunctional(vueRef(toRawRef(value)), false)) as any
 
 export const computed: typeof vueComputed = (getter: any, debugOptions: any) =>
   toFunctional(vueComputed(getter, debugOptions), typeof getter === 'function')
 
 export const shallowRef: typeof vueShallowRef = ((value: any): any =>
-  toFunctional(vueShallowRef(value), false)) as any
+  toFunctional(vueShallowRef(toRawRef(value)), false)) as any
 
 export const customRef: typeof vueCustomRef = ((value: any): any =>
-  toFunctional(vueCustomRef(value), false)) as any
+  toFunctional(vueCustomRef(toRawRef(value)), false)) as any
 
 export const readonly: typeof vueReadonly = (target: any): any =>
-  toFunctional(vueReadonly((target as any).__raw_ref), true)
+  toFunctional(vueReadonly(toRawRef(target)), true)
 
 export const toRef: typeof vueToRef = (obj: any, key: string): any =>
   toFunctional(vueToRef(obj, key), false)
