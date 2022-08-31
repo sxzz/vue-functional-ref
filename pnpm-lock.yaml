@@ -9,6 +9,7 @@ importers:
       '@sxzz/eslint-config-vue': ^2.4.1
       '@types/node': '*'
       '@vue/reactivity': ^3.2.38
+      '@vue/shared': ^3.2.38
       bumpp: ^8.2.1
       esbuild: ^0.15.6
       eslint: ^8.23.0
@@ -29,6 +30,7 @@ importers:
       '@sxzz/eslint-config-vue': 2.4.1_yqf6kl63nyoq5megxukfnom5rm
       '@types/node': 18.6.1
       '@vue/reactivity': 3.2.38
+      '@vue/shared': 3.2.38
       bumpp: 8.2.1
       esbuild: 0.15.6
       eslint: 8.23.0
@@ -50,7 +52,7 @@ importers:
       typescript: ^4.6.4
       vite: ^3.0.7
       vue: ^3.2.37
-      vue-functional-ref: workspace:^0.0.1
+      vue-functional-ref: workspace:*
       vue-tsc: ^0.39.5
     dependencies:
       '@vueuse/core': 9.1.1_vue@3.2.38

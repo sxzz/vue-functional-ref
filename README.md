@@ -56,7 +56,10 @@ console.log(double.set === undefined) // true
 {
   "compilerOptions": {
     // ...
-    "types": ["vue-functional-ref/macros-global" /* ... */]
+    "baseUrl": ".",
+    "paths": {
+      "@vue/reactivity": ["./node_modules/vue-functional-ref/types"]
+    }
   }
 }
 ```

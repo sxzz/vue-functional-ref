@@ -11,7 +11,7 @@
   "dependencies": {
     "@vueuse/core": "^9.1.1",
     "vue": "^3.2.37",
-    "vue-functional-ref": "workspace:^0.0.1"
+    "vue-functional-ref": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",

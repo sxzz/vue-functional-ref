@@ -1,7 +1,18 @@
 import { expect, test } from 'vitest'
 import { expectTypeOf } from 'expect-type'
-import { isRef, ref as vueRef } from '@vue/reactivity'
-import { computed, customRef, ref, shallowRef, unref } from '../src'
+import { ref as vueRef } from '@vue/reactivity'
+import {
+  computed,
+  customRef,
+  isReadonly,
+  isRef,
+  readonly,
+  ref,
+  shallowRef,
+  unref,
+} from '../src'
+import type * as proxyType from '@vue/reactivity'
+import type * as vueType from '@vue/reactivity/dist/reactivity'
 
 test('ref', () => {
   const foo = ref()
@@ -103,6 +114,17 @@ test('unref', () => {
   expect(unref(1)).toBe(1)
 })
 
+test('readonly', () => {
+  const foo = readonly(ref(ref('hello')))
+  expect(isReadonly(foo)).toBe(true)
+  expect(foo.set).toBeUndefined()
+
+  // @ts-expect-error set is never
+  expect(() => foo.set()).toThrowErrorMatchingInlineSnapshot(
+    '"foo.set is not a function"'
+  )
+})
+
 test('typeof', () => {
   expect(typeof ref()).toBe('function')
   expect(typeof vueRef()).toBe('object')
@@ -122,4 +144,8 @@ test('ownKeys', () => {
       "_value",
     ]
   `)
+})
+
+test('export types', () => {
+  expectTypeOf<keyof typeof proxyType>().toEqualTypeOf<keyof typeof vueType>()
 })

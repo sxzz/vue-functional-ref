@@ -27,7 +27,7 @@
       "require": "./dist/esbuild.js",
       "import": "./dist/esbuild.mjs"
     },
-    "./macros-global": "./macros-global.d.ts",
+    "./types": "./types.d.ts",
     "./*": "./*"
   },
   "typesVersions": {
@@ -50,7 +50,8 @@
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.0.0"
+    "@vue/reactivity": "^3.2.0",
+    "@vue/shared": "^3.2.0"
   },
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1"
@@ -60,6 +61,7 @@
     "@sxzz/eslint-config-vue": "^2.4.1",
     "@types/node": "*",
     "@vue/reactivity": "^3.2.38",
+    "@vue/shared": "^3.2.38",
     "bumpp": "^8.2.1",
     "esbuild": "^0.15.6",
     "eslint": "^8.23.0",
