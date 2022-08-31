@@ -135,7 +135,7 @@ test('isRef', () => {
 })
 
 test('unref', () => {
-  const foo = ref('hello')
+  const foo = ref(ref('hello'))
   expect(unref(foo)).toBe('hello')
   expect(unref(1)).toBe(1)
 })
