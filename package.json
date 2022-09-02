@@ -5,7 +5,8 @@
   "description": "Functional-style refs for Vue",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "types.d.ts"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -50,8 +51,12 @@
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.2.0",
-    "@vue/shared": "^3.2.0"
+    "vue": "^3.2.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1"
