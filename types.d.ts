@@ -69,7 +69,7 @@ export declare type FunctionalRef<
   Writable extends boolean = boolean
 > = {
   (): T
-} & (Writable extends true ? { set: (value: T) => void | Writable } : {})
+} & (Writable extends true ? { set: (value: T) => void } : {})
 
 export declare interface ComputedRef<T = any> extends WritableComputedRef<T> {
   set: never
@@ -96,7 +96,7 @@ export declare type CustomRefFactory<T> = (
 }
 export declare function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
 
-export type ReadonlyRef<T> = Readonly<T> & FunctionalRef<T, false>
+export type ReadonlyRef<T> = Omit<Readonly<T>, 'set'> & FunctionalRef<T, false>
 
 export declare type DeepReadonly<T> = T extends Ref<infer U>
   ? ReadonlyRef<Ref<DeepReadonly<U>>>

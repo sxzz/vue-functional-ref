@@ -23,11 +23,12 @@ importers:
       typescript: ^4.8.2
       vite: ^3.0.7
       vitest: ^0.22.1
+      vue: ^3.2.37
     dependencies:
       '@rollup/pluginutils': 4.2.1
     devDependencies:
       '@sxzz/eslint-config-prettier': 2.4.1_eslint@8.23.0
-      '@sxzz/eslint-config-vue': 2.4.1_yqf6kl63nyoq5megxukfnom5rm
+      '@sxzz/eslint-config-vue': 2.4.1_okhubga6fjlcdp5ybkx5teogpa
       '@types/node': 18.6.1
       '@vue/reactivity': 3.2.38
       '@vue/shared': 3.2.38
@@ -44,6 +45,7 @@ importers:
       typescript: 4.8.2
       vite: 3.0.9
       vitest: 0.22.1
+      vue: 3.2.38
 
   playground:
     specifiers:
@@ -269,7 +271,7 @@ packages:
       - supports-color
     dev: true
 
-  /@sxzz/eslint-config-vue/2.4.1_yqf6kl63nyoq5megxukfnom5rm:
+  /@sxzz/eslint-config-vue/2.4.1_okhubga6fjlcdp5ybkx5teogpa:
     resolution: {integrity: sha512-hazkjU6mVmcXk/sNbUnhgS94B0MKcRo2tk+/sR7MxSxcpVTXA04eCHaWEGvpKgZyBt9AI80zK9A6l05D3tRfVA==}
     peerDependencies:
       eslint: '>=7.4.0'
@@ -283,6 +285,7 @@ packages:
       eslint-define-config: 1.6.0
       eslint-plugin-vue: 9.4.0_eslint@8.23.0
       local-pkg: 0.4.2
+      vue: 3.2.38
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack

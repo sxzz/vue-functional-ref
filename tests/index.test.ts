@@ -1,6 +1,5 @@
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { expectTypeOf } from 'expect-type'
-import { ref as vueRef } from '@vue/reactivity'
 import {
   computed,
   customRef,
@@ -13,9 +12,24 @@ import {
   toRef,
   toRefs,
   unref,
-} from '../src'
+  watchEffect,
+} from 'vue'
 import type * as proxyType from '@vue/reactivity'
-import type * as vueType from '@vue/reactivity/dist/reactivity'
+import type * as vueReactivityType from '@vue/reactivity/dist/reactivity'
+import type * as vue from 'vue'
+
+const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+
+vi.mock('vue', async () => {
+  return {
+    ...(await vi.importActual<typeof vue>('vue')),
+    ...(await import('../src')),
+  }
+})
+
+const { ref: vueRef, readonly: vueReadonly } = await vi.importActual<
+  typeof vue
+>('vue')
 
 test('ref', () => {
   const foo = ref()
@@ -141,13 +155,25 @@ test('unref', () => {
 })
 
 test('readonly', () => {
-  const foo = readonly(ref(ref('hello')))
-  expect(isReadonly(foo)).toBe(true)
-  expect(foo.set).toBeUndefined()
+  const msg = readonly(ref('Hello World!'))
+  expect(isReadonly(msg)).toBe(true)
+  // @ts-expect-error set is never
+  expect(msg.set).toBeUndefined()
 
   // @ts-expect-error set is never
-  expect(() => foo.set()).toThrowErrorMatchingInlineSnapshot(
-    '"foo.set is not a function"'
+  expect(() => msg.set()).toThrowErrorMatchingInlineSnapshot(
+    '"msg.set is not a function"'
+  )
+  expectTypeOf(typeof msg).not.toHaveProperty('set')
+
+  const nested = readonly(ref(ref('hello')))
+  expect(isReadonly(nested)).toBe(true)
+  // @ts-expect-error set is never
+  expect(nested.set).toBeUndefined()
+
+  // @ts-expect-error set is never
+  expect(() => nested.set()).toThrowErrorMatchingInlineSnapshot(
+    '"nested.set is not a function"'
   )
 
   const obj = readonly({ foo: 'bar' })
@@ -160,6 +186,13 @@ test('readonly', () => {
 test('typeof', () => {
   expect(typeof ref()).toBe('function')
   expect(typeof vueRef()).toBe('object')
+})
+
+test('proxy', () => {
+  const msg = readonly(ref('Hello World!'))
+  watchEffect(() => (msg.value, undefined))
+
+  expect(warn).not.toBeCalled()
 })
 
 test('in operator', () => {
@@ -179,5 +212,7 @@ test('ownKeys', () => {
 })
 
 test('export types', () => {
-  expectTypeOf<keyof typeof proxyType>().toEqualTypeOf<keyof typeof vueType>()
+  expectTypeOf<keyof typeof proxyType>().toEqualTypeOf<
+    keyof typeof vueReactivityType
+  >()
 })

@@ -42,18 +42,18 @@ function toFunctional(raw: any, readonly: boolean): any {
 
   return new Proxy(fn, {
     ...handlers,
-    get(target, key, receiver) {
+    get(target, key) {
       if (!readonly && key === 'set') {
         return (value: any) => (raw.value = value)
       } else if (key === '__raw_ref') {
         return toRawRef(raw)
       } else {
-        return Reflect.get(raw, key, receiver)
+        return Reflect.get(raw, key, raw)
       }
     },
-    set(target, key, newValue, receiver) {
+    set(target, key, newValue) {
       if (key === 'set') return false
-      return Reflect.set(raw, key, newValue, receiver)
+      return Reflect.set(raw, key, newValue, raw)
     },
   })
 }
