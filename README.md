@@ -4,10 +4,32 @@
 
 Functional-style refs for Vue. Inspired by [@antfu](https://github.com/antfu).
 
+## Features
+
+- ✨ Extend refs with functional style.
+- 💖 Compatible with existing libraries. Tested on [Element Plus](https://github.com/element-plus/element-plus).
+- 🦾 Full TypeScript support.
+- ⚡️ Supports Vite, Rollup, esbuild.
+
 ## Install
 
 ```bash
 npm i vue-functional-ref
+```
+
+### TypeScript Support
+
+```jsonc
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@vue/reactivity": ["./node_modules/vue-functional-ref/types"]
+    }
+  }
+}
 ```
 
 ## Usage
@@ -47,21 +69,6 @@ const double = computed(() => count() * 2)
 console.log(double() === 2) // true
 console.log(double.set === undefined) // true
 </script>
-```
-
-### TypeScript Support
-
-```jsonc
-// tsconfig.json
-{
-  "compilerOptions": {
-    // ...
-    "baseUrl": ".",
-    "paths": {
-      "@vue/reactivity": ["./node_modules/vue-functional-ref/types"]
-    }
-  }
-}
 ```
 
 ## Sponsors
