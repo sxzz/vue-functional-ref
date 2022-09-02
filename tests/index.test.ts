@@ -27,9 +27,7 @@ vi.mock('vue', async () => {
   }
 })
 
-const { ref: vueRef, readonly: vueReadonly } = await vi.importActual<
-  typeof vue
->('vue')
+const { ref: vueRef } = await vi.importActual<typeof vue>('vue')
 
 test('ref', () => {
   const foo = ref()
