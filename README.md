@@ -7,7 +7,7 @@ Functional-style refs for Vue. Inspired by [@antfu](https://github.com/antfu).
 ## Features
 
 - ✨ Extend refs with functional style.
-- 💖 Compatible with existing libraries. Tested on [Element Plus](https://github.com/element-plus/element-plus).
+- 💖 Compatible with existing libraries. Tested on [Element Plus](https://github.com/element-plus/element-plus) and [VueUse](https://github.com/vueuse/vueuse).
 - 🦾 Full TypeScript support.
 - ⚡️ Supports Vite, Rollup, esbuild.
 
