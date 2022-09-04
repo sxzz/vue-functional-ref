@@ -12,6 +12,7 @@ import {
   toRef,
   toRefs,
   unref,
+  watch,
   watchEffect,
 } from 'vue'
 import type * as proxyType from '@vue/reactivity'
@@ -179,6 +180,22 @@ test('readonly', () => {
   expectTypeOf(obj).toEqualTypeOf<{
     readonly foo: string
   }>()
+})
+
+test('watch', () => {
+  let changed = 0
+  const source = ref(0)
+  expect(source()).toBe(0)
+
+  watch(source, () => changed++, { deep: true, flush: 'sync' })
+
+  source.set(source() + 1)
+  expect(source()).toBe(1)
+  expect(changed).toBe(1)
+
+  source.set(10)
+  expect(source()).toBe(10)
+  expect(changed).toBe(2)
 })
 
 test('typeof', () => {

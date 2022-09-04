@@ -6,4 +6,5 @@ export default defineConfig({
   target: 'node14',
   clean: true,
   dts: true,
+  external: ['@vue/reactivity', '@vue/shared'],
 })
