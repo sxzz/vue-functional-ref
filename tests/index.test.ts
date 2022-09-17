@@ -41,6 +41,9 @@ test('ref', () => {
 
   bar.set(undefined)
   expect(bar()).toBe(undefined)
+
+  const baz = ref(1)
+  expect(ref(baz)).toBe(baz) // should be the same ref
 })
 
 test('computed', () => {

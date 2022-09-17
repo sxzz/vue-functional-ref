@@ -58,8 +58,10 @@ function toFunctional(raw: any, readonly: boolean): any {
   })
 }
 
-export const ref: typeof vueRef = ((value: any) =>
-  toFunctional(vueRef(toRawRef(value)), false)) as any
+export const ref: typeof vueRef = ((value: any) => {
+  if (isRef(value)) return value
+  return toFunctional(vueRef(toRawRef(value)), false)
+}) as any
 
 export const computed: typeof vueComputed = (getter: any, debugOptions: any) =>
   toFunctional(vueComputed(getter, debugOptions), typeof getter === 'function')
