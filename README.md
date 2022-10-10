@@ -13,11 +13,48 @@ Functional-style refs for Vue. Inspired by [@antfu](https://github.com/antfu).
 
 ## Install
 
+### PNPM (Recommended)
+
+If you're using pnpm, try this approach first!
+
+```bash
+pnpm i vue-functional-ref
+```
+
+```jsonc
+{
+  // package.json
+
+  // ...
+  "pnpm": {
+    "overrides": {
+      "@vue/runtime-core>@vue/reactivity": "npm:vue-functional-ref"
+    }
+  }
+}
+```
+
+### Bundler
+
+If you're not using pnpm but using Rollup, Vite or esbuild, try this approach.
+
 ```bash
 npm i vue-functional-ref
 ```
 
-### TypeScript Support
+Supports Vite, Rollup and esbuild.
+
+```ts
+import VueFunctionalRef from 'vue-functional-ref/vite'
+//                   Rollup: 'vue-functional-ref/rollup'
+//                  esbuild: 'vue-functional-ref/esbuild'
+
+export default {
+  plugins: [VueFunctionalRef()],
+}
+```
+
+#### TypeScript Support
 
 ```jsonc
 // tsconfig.json
@@ -33,18 +70,6 @@ npm i vue-functional-ref
 ```
 
 ## Usage
-
-Support Vite, Rollup and esbuild
-
-```ts
-import VueFunctionalRef from 'vue-functional-ref/vite'
-// 'vue-functional-ref/rollup' for Rollup
-// 'vue-functional-ref/esbuild' for esbuild
-
-export default {
-  plugins: [VueFunctionalRef()],
-}
-```
 
 ### Ref
 
