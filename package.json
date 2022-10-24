@@ -1,7 +1,7 @@
 {
   "name": "vue-functional-ref",
   "version": "0.2.5",
-  "packageManager": "pnpm@7.13.5",
+  "packageManager": "pnpm@7.14.0",
   "description": "Functional-style refs for Vue",
   "license": "MIT",
   "files": [
@@ -59,7 +59,7 @@
     }
   },
   "dependencies": {
-    "@rollup/pluginutils": "^5.0.1"
+    "@rollup/pluginutils": "^5.0.2"
   },
   "devDependencies": {
     "@sxzz/eslint-config-prettier": "^2.4.4",
@@ -68,15 +68,15 @@
     "@vue/reactivity": "^3.2.41",
     "@vue/shared": "^3.2.41",
     "bumpp": "^8.2.1",
-    "esbuild": "^0.15.11",
-    "eslint": "^8.25.0",
-    "eslint-define-config": "^1.7.0",
-    "expect-type": "^0.14.2",
+    "esbuild": "^0.15.12",
+    "eslint": "^8.26.0",
+    "eslint-define-config": "^1.8.0",
+    "expect-type": "^0.15.0",
     "fast-glob": "^3.2.12",
     "prettier": "^2.7.1",
     "rollup": "^2.79.1",
-    "tsup": "^6.2.3",
-    "tsx": "^3.10.1",
+    "tsup": "^6.3.0",
+    "tsx": "^3.11.0",
     "typescript": "^4.8.4",
     "vite": "^3.1.8",
     "vitest": "^0.24.3",
