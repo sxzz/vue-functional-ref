@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vueuse/core": "^9.4.0",
-    "vue": "^3.2.41",
+    "@vueuse/core": "^9.5.0",
+    "vue": "^3.2.45",
     "vue-functional-ref": "workspace:*"
   },
   "devDependencies": {
