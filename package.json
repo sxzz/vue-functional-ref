@@ -1,6 +1,6 @@
 {
   "name": "vue-functional-ref",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "packageManager": "pnpm@7.18.0",
   "description": "Functional-style refs for Vue",
   "license": "MIT",
