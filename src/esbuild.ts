@@ -7,11 +7,13 @@ export default (): Plugin => ({
   setup(build) {
     build.onResolve(
       { filter: /^@vue\/reactivity$/, namespace: 'file' },
-      ({ importer }) => {
+      ({ importer, kind }) => {
         const normalizedImporter = normalizePath(importer)
         if (IMPORTER_RE.test(normalizedImporter)) return
 
-        return build.resolve('vue-functional-ref')
+        return build.resolve('vue-functional-ref', {
+          kind,
+        })
       }
     )
   },
