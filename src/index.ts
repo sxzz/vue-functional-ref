@@ -1,5 +1,6 @@
 import {
   isRef,
+  triggerRef,
   computed as vueComputed,
   customRef as vueCustomRef,
   readonly as vueReadonly,
@@ -40,12 +41,18 @@ function toFunctional(raw: any, readonly: boolean): any {
     ])
   )
 
+  const set = (value: any) => (raw.value = value)
+  const mutate = (mutator: (value: any) => any) => {
+    mutator(raw.value)
+    triggerRef(raw)
+  }
+
   return new Proxy(fn, {
     ...handlers,
     get(target, key) {
-      if (!readonly && key === 'set') {
-        return (value: any) => (raw.value = value)
-      } else if (key === '__raw_ref') {
+      if (!readonly && key === 'set') return set
+      else if (!readonly && key === 'mutate') return mutate
+      else if (key === '__raw_ref') {
         return toRawRef(raw)
       } else {
         return Reflect.get(raw, key, raw)

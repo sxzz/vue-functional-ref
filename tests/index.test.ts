@@ -5,6 +5,7 @@ import {
   customRef,
   isReadonly,
   isRef,
+  nextTick,
   reactive,
   readonly,
   ref,
@@ -233,4 +234,25 @@ test('export types', () => {
   expectTypeOf<keyof typeof proxyType>().toEqualTypeOf<
     keyof typeof vueReactivityType
   >()
+})
+
+test('mutate', async () => {
+  const fn = vi.fn()
+
+  const foo = ref({ foo: 'foo', nested: { count: 1 } })
+  watch(
+    () => foo().nested.count,
+    () => fn()
+  )
+
+  foo.mutate((foo) => {
+    foo.foo = 'bar'
+    foo.nested.count++
+  })
+
+  await nextTick()
+
+  expect(foo().foo).toBe('bar')
+  expect(foo().nested.count).toBe(2)
+  expect(fn).toBeCalledTimes(1)
 })

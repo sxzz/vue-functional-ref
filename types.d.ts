@@ -69,7 +69,12 @@ export declare type FunctionalRef<
   Writable extends boolean = boolean
 > = {
   (): T
-} & (Writable extends true ? { set: (value: T) => void } : {})
+} & (Writable extends true
+  ? {
+      set: (value: T) => void
+      mutate: (mutator: (value: T) => void) => void
+    }
+  : {})
 
 export declare interface ComputedRef<T = any> extends WritableComputedRef<T> {
   set: never
