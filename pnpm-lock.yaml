@@ -18,7 +18,7 @@ importers:
       fast-glob: ^3.2.12
       prettier: ^2.8.4
       rollup: ^3.19.1
-      tsup: ^6.6.3
+      tsup: ^6.7.0
       tsx: ^3.12.5
       typescript: ^5.0.2
       vite: ^4.2.0
@@ -40,7 +40,7 @@ importers:
       fast-glob: 3.2.12
       prettier: 2.8.4
       rollup: 3.19.1
-      tsup: 6.6.3_typescript@5.0.2
+      tsup: 6.7.0_typescript@5.0.2
       tsx: 3.12.5
       typescript: 5.0.2
       vite: 4.2.0_@types+node@18.15.3
@@ -3425,14 +3425,14 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tsup/6.6.3_typescript@5.0.2:
-    resolution: {integrity: sha512-OLx/jFllYlVeZQ7sCHBuRVEQBBa1tFbouoc/gbYakyipjVQdWy/iQOvmExUA/ewap9iQ7tbJf9pW0PgcEFfJcQ==}
+  /tsup/6.7.0_typescript@5.0.2:
+    resolution: {integrity: sha512-L3o8hGkaHnu5TdJns+mCqFsDBo83bJ44rlK7e6VdanIvpea4ArPcU3swWGsLVbXak1PqQx/V+SSmFPujBK+zEQ==}
     engines: {node: '>=14.18'}
     hasBin: true
     peerDependencies:
       '@swc/core': ^1
       postcss: ^8.4.12
-      typescript: ^4.1.0
+      typescript: '>=4.1.0'
     peerDependenciesMeta:
       '@swc/core':
         optional: true
