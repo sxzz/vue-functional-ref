@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vueuse/core": "^9.13.0",
+    "@vueuse/core": "^10.1.0",
     "vue": "^3.2.47",
     "vue-functional-ref": "workspace:*"
   },
