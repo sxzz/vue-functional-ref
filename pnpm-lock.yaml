@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 importers:
 
@@ -6,7 +10,7 @@ importers:
     dependencies:
       '@rollup/pluginutils':
         specifier: ^5.0.2
-        version: 5.0.2(rollup@3.22.1)
+        version: 5.0.2(rollup@3.23.0)
     devDependencies:
       '@sxzz/eslint-config-prettier':
         specifier: ^2.4.6
@@ -45,8 +49,8 @@ importers:
         specifier: ^2.8.8
         version: 2.8.8
       rollup:
-        specifier: ^3.22.1
-        version: 3.22.1
+        specifier: ^3.23.0
+        version: 3.23.0
       tsup:
         specifier: ^6.7.0
         version: 6.7.0(typescript@5.0.4)
@@ -57,8 +61,8 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4
       vite:
-        specifier: ^4.3.8
-        version: 4.3.8(@types/node@20.1.2)
+        specifier: ^4.3.9
+        version: 4.3.9(@types/node@20.1.2)
       vitest:
         specifier: ^0.31.1
         version: 0.31.1
@@ -80,13 +84,13 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
-        version: 4.2.3(vite@4.3.8)(vue@3.3.4)
+        version: 4.2.3(vite@4.3.9)(vue@3.3.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
       vite:
-        specifier: ^4.3.8
-        version: 4.3.8(@types/node@20.1.2)
+        specifier: ^4.3.9
+        version: 4.3.9(@types/node@20.1.2)
       vue-tsc:
         specifier: ^1.6.5
         version: 1.6.5(typescript@5.0.4)
@@ -472,7 +476,7 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@rollup/pluginutils@5.0.2(rollup@3.22.1):
+  /@rollup/pluginutils@5.0.2(rollup@3.23.0):
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -484,7 +488,7 @@ packages:
       '@types/estree': 1.0.1
       estree-walker: 2.0.2
       picomatch: 2.3.1
-      rollup: 3.22.1
+      rollup: 3.23.0
     dev: false
 
   /@sxzz/eslint-config-basic@2.4.6(@typescript-eslint/parser@5.59.5)(eslint@8.41.0):
@@ -741,14 +745,14 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vitejs/plugin-vue@4.2.3(vite@4.3.8)(vue@3.3.4):
+  /@vitejs/plugin-vue@4.2.3(vite@4.3.9)(vue@3.3.4):
     resolution: {integrity: sha512-R6JDUfiZbJA9cMiguQ7jxALsgiprjBeHL5ikpXfJCH62pPHtI+JdJ5xWj6Ev73yXSlYl86+blXn1kZHQ7uElxw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.8(@types/node@20.1.2)
+      vite: 4.3.9(@types/node@20.1.2)
       vue: 3.3.4
     dev: true
 
@@ -3088,8 +3092,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup@3.22.1:
-    resolution: {integrity: sha512-ZI+GSAqOkCyTtJPlwyPOaYKa0RqvztN4miRVusVJseMj6BIBT2f6pFeK90IdJsQ86FLMYkxju2whuck3yKPE4Q==}
+  /rollup@3.23.0:
+    resolution: {integrity: sha512-h31UlwEi7FHihLe1zbk+3Q7z1k/84rb9BSwmBSr/XjOCEaBJ2YyedQDuM0t/kfOS0IxM+vk1/zI9XxYj9V+NJQ==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -3434,7 +3438,7 @@ packages:
       joycon: 3.1.1
       postcss-load-config: 3.1.4
       resolve-from: 5.0.0
-      rollup: 3.22.1
+      rollup: 3.23.0
       source-map: 0.8.0-beta.0
       sucrase: 3.32.0
       tree-kill: 1.2.2
@@ -3552,7 +3556,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.3.8(@types/node@20.1.2)
+      vite: 4.3.9(@types/node@20.1.2)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3563,8 +3567,8 @@ packages:
       - terser
     dev: true
 
-  /vite@4.3.8(@types/node@20.1.2):
-    resolution: {integrity: sha512-uYB8PwN7hbMrf4j1xzGDk/lqjsZvCDbt/JC5dyfxc19Pg8kRm14LinK/uq+HSLNswZEoKmweGdtpbnxRtrAXiQ==}
+  /vite@4.3.9(@types/node@20.1.2):
+    resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3591,7 +3595,7 @@ packages:
       '@types/node': 20.1.2
       esbuild: 0.17.19
       postcss: 8.4.23
-      rollup: 3.22.1
+      rollup: 3.23.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -3649,7 +3653,7 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.5.0
-      vite: 4.3.8(@types/node@20.1.2)
+      vite: 4.3.9(@types/node@20.1.2)
       vite-node: 0.31.1(@types/node@20.1.2)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:

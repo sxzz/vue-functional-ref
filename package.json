@@ -1,7 +1,7 @@
 {
   "name": "vue-functional-ref",
   "version": "0.4.1",
-  "packageManager": "pnpm@8.5.1",
+  "packageManager": "pnpm@8.6.0",
   "description": "Functional-style refs for Vue",
   "license": "MIT",
   "files": [
@@ -70,11 +70,11 @@
     "expect-type": "^0.15.0",
     "fast-glob": "^3.2.12",
     "prettier": "^2.8.8",
-    "rollup": "^3.22.1",
+    "rollup": "^3.23.0",
     "tsup": "^6.7.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4",
-    "vite": "^4.3.8",
+    "vite": "^4.3.9",
     "vitest": "^0.31.1",
     "vue": "^3.3.4"
   },
