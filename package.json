@@ -10,7 +10,7 @@
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./dist/types.d.ts",
+  "types": "./types.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -34,6 +34,14 @@
     },
     "./types": "./types.d.ts",
     "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
   },
   "publishConfig": {
     "access": "public"
