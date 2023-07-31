@@ -9,14 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vueuse/core": "^10.2.1",
+    "@vueuse/core": "^10.3.0",
     "vue": "^3.3.4",
     "vue-functional-ref": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "typescript": "^5.1.6",
-    "vite": "^4.4.6",
-    "vue-tsc": "^1.8.6"
+    "vite": "^4.4.7",
+    "vue-tsc": "^1.8.8"
   }
 }
