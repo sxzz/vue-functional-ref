@@ -1,6 +1,6 @@
 import { normalizePath } from '@rollup/pluginutils'
+import { type Plugin } from 'esbuild'
 import { IMPORTER_RE } from './common'
-import type { Plugin } from 'esbuild'
 
 export default (): Plugin => ({
   name: 'vue-functional-ref',

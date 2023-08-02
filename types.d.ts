@@ -1,13 +1,11 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
-
-import type {
-  ComputedGetter,
-  DebuggerOptions,
-  ReactiveEffect,
-  RefUnwrapBailTypes,
-  WritableComputedOptions,
+import {
+  type ComputedGetter,
+  type DebuggerOptions,
+  type ReactiveEffect,
+  type RefUnwrapBailTypes,
+  type WritableComputedOptions,
 } from '@vue/reactivity/dist/reactivity'
-import type { IfAny } from '@vue/shared'
+import { type IfAny } from '@vue/shared'
 
 export {
   ReactiveFlags,
@@ -66,7 +64,7 @@ declare type CollectionTypes = IterableCollections | WeakCollections
 
 export declare type FunctionalRef<
   T = any,
-  Writable extends boolean = boolean
+  Writable extends boolean = boolean,
 > = {
   (): T
 } & (Writable extends true

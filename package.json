@@ -59,9 +59,9 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json,.md",
+    "lint": "eslint .",
     "lint:fix": "pnpm run lint --fix",
-    "build": "tsup && tsx scripts/postbuild.mts",
+    "build": "tsup",
     "test": "vitest",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"
@@ -78,27 +78,27 @@
     "@rollup/pluginutils": "^5.0.2"
   },
   "devDependencies": {
-    "@sxzz/eslint-config-prettier": "^2.4.6",
-    "@sxzz/eslint-config-vue": "^2.4.6",
+    "@sxzz/eslint-config": "^3.3.2",
+    "@sxzz/prettier-config": "^1.0.4",
     "@types/node": "^20.4.5",
     "@vue/reactivity": "^3.3.4",
     "@vue/shared": "^3.3.4",
     "bumpp": "^9.1.1",
     "esbuild": "^0.18.17",
     "eslint": "^8.46.0",
-    "eslint-define-config": "^1.22.0",
     "expect-type": "^0.16.0",
     "fast-glob": "^3.3.1",
     "prettier": "^3.0.0",
     "rollup": "^3.27.0",
-    "tsup": "^7.1.0",
+    "tsup": "^7.2.0",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6",
-    "vite": "^4.4.7",
-    "vitest": "^0.33.0",
+    "vite": "^4.4.8",
+    "vitest": "^0.34.1",
     "vue": "^3.3.4"
   },
   "engines": {
     "node": ">=14.19.0"
-  }
+  },
+  "prettier": "@sxzz/prettier-config"
 }
