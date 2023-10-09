@@ -75,25 +75,25 @@
     }
   },
   "dependencies": {
-    "@rollup/pluginutils": "^5.0.4"
+    "@rollup/pluginutils": "^5.0.5"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^3.6.1",
+    "@sxzz/eslint-config": "^3.6.2",
     "@sxzz/prettier-config": "^1.0.4",
-    "@types/node": "^20.8.0",
+    "@types/node": "^20.8.3",
     "@vue/reactivity": "^3.3.4",
     "@vue/shared": "^3.3.4",
     "bumpp": "^9.2.0",
     "esbuild": "^0.19.4",
-    "eslint": "^8.50.0",
-    "expect-type": "^0.16.0",
+    "eslint": "^8.51.0",
+    "expect-type": "^0.17.3",
     "fast-glob": "^3.3.1",
     "prettier": "^3.0.3",
     "rollup": "^3.29.4",
     "tsup": "^7.2.0",
     "tsx": "^3.13.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
+    "vite": "^4.4.11",
     "vitest": "^0.34.6",
     "vue": "^3.3.4"
   },

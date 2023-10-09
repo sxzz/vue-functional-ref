@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "esnext",
     "lib": ["es2022"],
-    "strict": true,
-    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "resolveJsonModule": true,
-    "types": ["node"],
     "paths": {
       "@vue/reactivity": ["./types.d.ts"]
-    }
+    },
+    "types": ["node"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true
   },
   "include": ["src", "tests"]
 }
