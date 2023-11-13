@@ -1,6 +1,6 @@
-import { type Plugin } from 'vite'
 import rollupPlugin from './rollup'
 import esbuildPlugin from './esbuild'
+import type { Plugin } from 'vite'
 
 export default (): Plugin => ({
   ...(rollupPlugin() as any),

@@ -1,11 +1,11 @@
-import {
-  type ComputedGetter,
-  type DebuggerOptions,
-  type ReactiveEffect,
-  type RefUnwrapBailTypes,
-  type WritableComputedOptions,
+import type {
+  ComputedGetter,
+  DebuggerOptions,
+  ReactiveEffect,
+  RefUnwrapBailTypes,
+  WritableComputedOptions,
 } from '@vue/reactivity/dist/reactivity'
-import { type IfAny } from '@vue/shared'
+import type { IfAny } from '@vue/shared'
 
 export {
   ReactiveFlags,
@@ -104,28 +104,28 @@ export type ReadonlyRef<T> = Omit<Readonly<T>, 'set'> & FunctionalRef<T, false>
 export declare type DeepReadonly<T> = T extends Ref<infer U>
   ? ReadonlyRef<Ref<DeepReadonly<U>>>
   : T extends Builtin
-  ? T
-  : T extends Map<infer K, infer V>
-  ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
-  : T extends ReadonlyMap<infer K, infer V>
-  ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
-  : T extends WeakMap<infer K, infer V>
-  ? WeakMap<DeepReadonly<K>, DeepReadonly<V>>
-  : T extends Set<infer U>
-  ? ReadonlySet<DeepReadonly<U>>
-  : T extends ReadonlySet<infer U>
-  ? ReadonlySet<DeepReadonly<U>>
-  : T extends WeakSet<infer U>
-  ? WeakSet<DeepReadonly<U>>
-  : T extends Promise<infer U>
-  ? Promise<DeepReadonly<U>>
-  : T extends Ref<infer U>
-  ? Readonly<Ref<DeepReadonly<U>>>
-  : T extends {}
-  ? {
-      readonly [K in keyof T]: DeepReadonly<T[K]>
-    }
-  : Readonly<T>
+    ? T
+    : T extends Map<infer K, infer V>
+      ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
+      : T extends ReadonlyMap<infer K, infer V>
+        ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
+        : T extends WeakMap<infer K, infer V>
+          ? WeakMap<DeepReadonly<K>, DeepReadonly<V>>
+          : T extends Set<infer U>
+            ? ReadonlySet<DeepReadonly<U>>
+            : T extends ReadonlySet<infer U>
+              ? ReadonlySet<DeepReadonly<U>>
+              : T extends WeakSet<infer U>
+                ? WeakSet<DeepReadonly<U>>
+                : T extends Promise<infer U>
+                  ? Promise<DeepReadonly<U>>
+                  : T extends Ref<infer U>
+                    ? Readonly<Ref<DeepReadonly<U>>>
+                    : T extends {}
+                      ? {
+                          readonly [K in keyof T]: DeepReadonly<T[K]>
+                        }
+                      : Readonly<T>
 
 export declare function isRef<T>(r: Ref<T> | unknown): r is Ref<T>
 
@@ -220,10 +220,10 @@ export declare type ShallowUnwrapRef<T> = {
   [K in keyof T]: T[K] extends Ref<infer V>
     ? V
     : T[K] extends Ref<infer V> | undefined
-    ? unknown extends V
-      ? undefined
-      : V | undefined
-    : T[K]
+      ? unknown extends V
+        ? undefined
+        : V | undefined
+      : T[K]
 }
 
 export declare type ToRef<T> = IfAny<T, Ref<T>, [T] extends [Ref] ? T : Ref<T>>
@@ -254,8 +254,8 @@ export declare type UnwrapNestedRefs<T> = T extends Ref ? T : UnwrapRefSimple<T>
 export declare type UnwrapRef<T> = T extends ShallowRef<infer V>
   ? V
   : T extends Ref<infer V>
-  ? UnwrapRefSimple<V>
-  : UnwrapRefSimple<T>
+    ? UnwrapRefSimple<V>
+    : UnwrapRefSimple<T>
 
 declare type UnwrapRefSimple<T> = T extends
   | Function
@@ -268,16 +268,16 @@ declare type UnwrapRefSimple<T> = T extends
     }
   ? T
   : T extends Array<any>
-  ? {
-      [K in keyof T]: UnwrapRefSimple<T[K]>
-    }
-  : T extends object & {
-      [ShallowReactiveMarker]?: never
-    }
-  ? {
-      [P in keyof T]: P extends symbol ? T[P] : UnwrapRef<T[P]>
-    }
-  : T
+    ? {
+        [K in keyof T]: UnwrapRefSimple<T[K]>
+      }
+    : T extends object & {
+          [ShallowReactiveMarker]?: never
+        }
+      ? {
+          [P in keyof T]: P extends symbol ? T[P] : UnwrapRef<T[P]>
+        }
+      : T
 
 export declare interface WritableComputedRef<T> extends Ref<T> {
   readonly effect: ReactiveEffect<T>
