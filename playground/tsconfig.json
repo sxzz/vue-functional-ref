@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["ESNext", "DOM"],
     "jsx": "preserve",
+    "lib": ["ESNext", "DOM"],
     "useDefineForClassFields": true,
+    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "baseUrl": ".",
     "paths": {
       "@vue/reactivity": ["./node_modules/vue-functional-ref/types"]
     },
     "resolveJsonModule": true,
-    "sourceMap": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
     "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "skipLibCheck": true
   },
   "references": [{ "path": "./tsconfig.node.json" }],
