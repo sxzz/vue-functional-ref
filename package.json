@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@sxzz/eslint-config": "^3.7.5",
-    "@sxzz/prettier-config": "^1.0.4",
+    "@sxzz/prettier-config": "^2.0.0",
     "@types/node": "^20.10.0",
     "@vue/reactivity": "^3.3.9",
     "@vue/shared": "^3.3.9",
