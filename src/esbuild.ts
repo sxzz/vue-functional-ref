@@ -14,7 +14,7 @@ export default (): Plugin => ({
         return build.resolve('vue-functional-ref', {
           kind,
         })
-      }
+      },
     )
   },
 })
