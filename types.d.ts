@@ -1,8 +1,13 @@
 import type {
   ComputedGetter,
+  ComputedRefSymbol,
   DebuggerOptions,
+  RawSymbol,
   ReactiveEffect,
+  RefSymbol,
   RefUnwrapBailTypes,
+  ShallowReactiveMarker,
+  ShallowRefMarker,
   WritableComputedOptions,
 } from '@vue/reactivity/dist/reactivity'
 import type { IfAny } from '@vue/shared'
@@ -40,13 +45,15 @@ export {
   ReactiveEffectOptions,
   effect,
   ITERATE_KEY,
+  ShallowRefMarker,
+  RawSymbol,
+  RefSymbol,
+  ShallowReactiveMarker,
+  ComputedRefImpl,
+  ComputedRefSymbol,
+  pauseScheduling,
+  resetScheduling,
 } from '@vue/reactivity/dist/reactivity'
-
-declare const ComputedRefSymbol: unique symbol
-declare const RawSymbol: unique symbol
-declare const RefSymbol: unique symbol
-declare const ShallowReactiveMarker: unique symbol
-declare const ShallowRefMarker: unique symbol
 
 declare type Primitive =
   | string
@@ -284,3 +291,10 @@ declare type UnwrapRefSimple<T> = T extends
 export declare interface WritableComputedRef<T> extends Ref<T> {
   readonly effect: ReactiveEffect<T>
 }
+
+export type MaybeRef<T = any> = T | Ref<T>
+export type MaybeRefOrGetter<T = any> = MaybeRef<T> | (() => T)
+
+export declare function toValue<T>(
+  source: MaybeRefOrGetter<T> | ComputedRef<T>,
+): T
