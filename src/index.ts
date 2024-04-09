@@ -38,7 +38,7 @@ function toFunctional(raw: any, readonly: boolean): any {
     proxyKeys.map((key) => [
       key,
       (target: any, ...args: any[]) => (Reflect[key] as any)(raw, ...args),
-    ])
+    ]),
   )
 
   const set = (value: any) => (raw.value = value)

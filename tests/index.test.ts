@@ -61,7 +61,7 @@ test('computed', () => {
 
   // @ts-expect-error set is never
   expect(() => double.set()).toThrowErrorMatchingInlineSnapshot(
-    `[TypeError: double.set is not a function]`
+    `[TypeError: double.set is not a function]`,
   )
 
   expect(double.effect).not.toBeUndefined()
@@ -147,7 +147,7 @@ test('isRef', () => {
   expect(
     isRef(() => {
       //
-    })
+    }),
   ).toBe(false)
 })
 
@@ -165,7 +165,7 @@ test('readonly', () => {
 
   // @ts-expect-error set is never
   expect(() => msg.set()).toThrowErrorMatchingInlineSnapshot(
-    `[TypeError: msg.set is not a function]`
+    `[TypeError: msg.set is not a function]`,
   )
   expectTypeOf(typeof msg).not.toHaveProperty('set')
 
@@ -176,7 +176,7 @@ test('readonly', () => {
 
   // @ts-expect-error set is never
   expect(() => nested.set()).toThrowErrorMatchingInlineSnapshot(
-    `[TypeError: nested.set is not a function]`
+    `[TypeError: nested.set is not a function]`,
   )
 
   const obj = readonly({ foo: 'bar' })
@@ -242,7 +242,7 @@ test('mutate', async () => {
   const foo = ref({ foo: 'foo', nested: { count: 1 } })
   watch(
     () => foo().nested.count,
-    () => fn()
+    () => fn(),
   )
 
   foo.mutate((foo) => {

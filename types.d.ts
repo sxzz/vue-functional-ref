@@ -81,18 +81,18 @@ export declare interface ComputedRef<T = any> extends WritableComputedRef<T> {
 }
 export declare function computed<T>(
   getter: ComputedGetter<T>,
-  debugOptions?: DebuggerOptions
+  debugOptions?: DebuggerOptions,
 ): ComputedRef<T>
 export declare function computed<T>(
   options: WritableComputedOptions<T>,
-  debugOptions?: DebuggerOptions
+  debugOptions?: DebuggerOptions,
 ): WritableComputedRef<T>
 
 export declare function deferredComputed<T>(getter: () => T): ComputedRef<T>
 
 export declare type CustomRefFactory<T> = (
   track: () => void,
-  trigger: () => void
+  trigger: () => void,
 ) => {
   get: () => T
   set: (value: T) => void
@@ -101,42 +101,43 @@ export declare function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
 
 export type ReadonlyRef<T> = Omit<Readonly<T>, 'set'> & FunctionalRef<T, false>
 
-export declare type DeepReadonly<T> = T extends Ref<infer U>
-  ? ReadonlyRef<Ref<DeepReadonly<U>>>
-  : T extends Builtin
-    ? T
-    : T extends Map<infer K, infer V>
-      ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
-      : T extends ReadonlyMap<infer K, infer V>
+export declare type DeepReadonly<T> =
+  T extends Ref<infer U>
+    ? ReadonlyRef<Ref<DeepReadonly<U>>>
+    : T extends Builtin
+      ? T
+      : T extends Map<infer K, infer V>
         ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
-        : T extends WeakMap<infer K, infer V>
-          ? WeakMap<DeepReadonly<K>, DeepReadonly<V>>
-          : T extends Set<infer U>
-            ? ReadonlySet<DeepReadonly<U>>
-            : T extends ReadonlySet<infer U>
+        : T extends ReadonlyMap<infer K, infer V>
+          ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
+          : T extends WeakMap<infer K, infer V>
+            ? WeakMap<DeepReadonly<K>, DeepReadonly<V>>
+            : T extends Set<infer U>
               ? ReadonlySet<DeepReadonly<U>>
-              : T extends WeakSet<infer U>
-                ? WeakSet<DeepReadonly<U>>
-                : T extends Promise<infer U>
-                  ? Promise<DeepReadonly<U>>
-                  : T extends Ref<infer U>
-                    ? Readonly<Ref<DeepReadonly<U>>>
-                    : T extends {}
-                      ? {
-                          readonly [K in keyof T]: DeepReadonly<T[K]>
-                        }
-                      : Readonly<T>
+              : T extends ReadonlySet<infer U>
+                ? ReadonlySet<DeepReadonly<U>>
+                : T extends WeakSet<infer U>
+                  ? WeakSet<DeepReadonly<U>>
+                  : T extends Promise<infer U>
+                    ? Promise<DeepReadonly<U>>
+                    : T extends Ref<infer U>
+                      ? Readonly<Ref<DeepReadonly<U>>>
+                      : T extends {}
+                        ? {
+                            readonly [K in keyof T]: DeepReadonly<T[K]>
+                          }
+                        : Readonly<T>
 
 export declare function isRef<T>(r: Ref<T> | unknown): r is Ref<T>
 
 export declare function markRaw<T extends object>(
-  value: T
+  value: T,
 ): T & {
   [RawSymbol]?: true
 }
 
 export declare function proxyRefs<T extends object>(
-  objectWithRefs: T
+  objectWithRefs: T,
 ): ShallowUnwrapRef<T>
 
 /**
@@ -162,7 +163,7 @@ export declare function proxyRefs<T extends object>(
  * ```
  */
 export declare function reactive<T extends object>(
-  target: T
+  target: T,
 ): UnwrapNestedRefs<T>
 
 /**
@@ -170,7 +171,7 @@ export declare function reactive<T extends object>(
  * made reactive, but `readonly` can be called on an already reactive object.
  */
 export declare function readonly<T extends object>(
-  target: T
+  target: T,
 ): DeepReadonly<UnwrapNestedRefs<T>>
 
 export declare interface Ref<T = any> extends FunctionalRef<T, true> {
@@ -184,7 +185,7 @@ export declare interface Ref<T = any> extends FunctionalRef<T, true> {
 }
 
 export declare function ref<T extends object>(
-  value: T
+  value: T,
 ): [T] extends [Ref] ? T : Ref<UnwrapRef<T>>
 
 export declare function ref<T>(value: T): Ref<UnwrapRef<T>>
@@ -201,7 +202,7 @@ export declare type ShallowReactive<T> = T & {
  * root level).
  */
 export declare function shallowReactive<T extends object>(
-  target: T
+  target: T,
 ): ShallowReactive<T>
 
 export declare type ShallowRef<T = any> = Ref<T> & {
@@ -209,7 +210,7 @@ export declare type ShallowRef<T = any> = Ref<T> & {
 }
 
 export declare function shallowRef<T extends object>(
-  value: T
+  value: T,
 ): T extends Ref ? T : ShallowRef<T>
 
 export declare function shallowRef<T>(value: T): ShallowRef<T>
@@ -230,13 +231,13 @@ export declare type ToRef<T> = IfAny<T, Ref<T>, [T] extends [Ref] ? T : Ref<T>>
 
 export declare function toRef<T extends object, K extends keyof T>(
   object: T,
-  key: K
+  key: K,
 ): ToRef<T[K]>
 
 export declare function toRef<T extends object, K extends keyof T>(
   object: T,
   key: K,
-  defaultValue: T[K]
+  defaultValue: T[K],
 ): ToRef<Exclude<T[K], undefined>>
 
 export declare type ToRefs<T = any> = {
@@ -251,11 +252,12 @@ export declare function unref<T>(ref: T | Ref<T>): T
 
 export declare type UnwrapNestedRefs<T> = T extends Ref ? T : UnwrapRefSimple<T>
 
-export declare type UnwrapRef<T> = T extends ShallowRef<infer V>
-  ? V
-  : T extends Ref<infer V>
-    ? UnwrapRefSimple<V>
-    : UnwrapRefSimple<T>
+export declare type UnwrapRef<T> =
+  T extends ShallowRef<infer V>
+    ? V
+    : T extends Ref<infer V>
+      ? UnwrapRefSimple<V>
+      : UnwrapRefSimple<T>
 
 declare type UnwrapRefSimple<T> = T extends
   | Function
