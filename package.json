@@ -78,7 +78,7 @@
     "@rollup/pluginutils": "^5.1.0"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^3.9.0",
+    "@sxzz/eslint-config": "^4.1.0",
     "@sxzz/prettier-config": "^2.0.1",
     "@types/node": "^20.12.6",
     "@vue/reactivity": "^3.4.21",
