@@ -7,6 +7,10 @@ export default defineConfig({
   splitting: true,
   cjsInterop: true,
   clean: true,
-  dts: true,
+  dts: {
+    compilerOptions: {
+      paths: {},
+    },
+  },
   external: ['@vue/reactivity', '@vue/shared'],
 })
