@@ -82,8 +82,9 @@ export const customRef: typeof vueCustomRef = ((value: any): any =>
 export const readonly: typeof vueReadonly = (target: any): any =>
   toFunctional(vueReadonly(toRawRef(target)), true)
 
-export const toRef: typeof vueToRef = (obj: any, key: string): any =>
-  toFunctional(vueToRef(obj, key), false)
+export const toRef: typeof vueToRef = ((
+  ...args: Parameters<typeof vueToRef>
+): any => toFunctional(vueToRef(...args), false)) as any
 
 export const toRefs: typeof vueToRefs = (obj: any): any => {
   const refs = vueToRefs(obj)

@@ -1,5 +1,5 @@
-import { expect, test, vi } from 'vitest'
 import { expectTypeOf } from 'expect-type'
+import { expect, test, vi } from 'vitest'
 import {
   computed,
   customRef,

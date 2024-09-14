@@ -28,9 +28,9 @@ pnpm i vue-functional-ref
   // ...
   "pnpm": {
     "overrides": {
-      "@vue/runtime-core>@vue/reactivity": "npm:vue-functional-ref"
-    }
-  }
+      "@vue/runtime-core>@vue/reactivity": "npm:vue-functional-ref",
+    },
+  },
 }
 ```
 
@@ -63,9 +63,9 @@ export default {
     // ...
     "baseUrl": ".",
     "paths": {
-      "@vue/reactivity": ["./node_modules/vue-functional-ref/types"]
-    }
-  }
+      "@vue/reactivity": ["./node_modules/vue-functional-ref/types"],
+    },
+  },
 }
 ```
 
