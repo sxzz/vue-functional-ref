@@ -221,9 +221,9 @@ test('in operator', () => {
 test('ownKeys', () => {
   expect(Object.keys(ref())).toMatchInlineSnapshot(`
     [
-      "__v_isShallow",
       "dep",
       "__v_isRef",
+      "__v_isShallow",
       "_rawValue",
       "_value",
     ]
