@@ -4,6 +4,8 @@
 
 Functional-style refs for Vue. Inspired by [@antfu](https://github.com/antfu).
 
+Requires Vue 3.5+
+
 ## Features
 
 - ✨ Extend refs with functional style.
