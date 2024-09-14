@@ -15,23 +15,20 @@ Requires Vue 3.5+
 
 ## Install
 
-### PNPM (Recommended)
+### PNPM / Yarn (Recommended)
 
-If you're using pnpm, try this approach first!
+If you're using pnpm or Yarn, try this approach first!
 
 ```bash
 pnpm i vue-functional-ref
 ```
 
 ```jsonc
+// package.json
 {
-  // package.json
-
   // ...
-  "pnpm": {
-    "overrides": {
-      "@vue/runtime-core>@vue/reactivity": "npm:vue-functional-ref",
-    },
+  "resolutions": {
+    "@vue/runtime-core>@vue/reactivity": "npm:vue-functional-ref",
   },
 }
 ```
@@ -63,7 +60,6 @@ export default {
 {
   "compilerOptions": {
     // ...
-    "baseUrl": ".",
     "paths": {
       "@vue/reactivity": ["./node_modules/vue-functional-ref/types"],
     },
@@ -75,27 +71,28 @@ export default {
 
 ### Ref
 
-```vue
-<script setup>
+```ts
 import { ref } from 'vue'
+
 const count = ref(1)
 count.set(10)
-
 console.log(count())
-</script>
+
+// Mutate value inside of object
+const obj = ref({ count: 1 })
+obj.mutate((obj) => obj.count++)
 ```
 
 ### Computed
 
-```vue
-<script setup>
+```ts
 import { computed, ref } from 'vue'
+
 const count = ref(1)
 const double = computed(() => count() * 2)
 
 console.log(double() === 2) // true
 console.log(double.set === undefined) // true
-</script>
 ```
 
 ## Sponsors
@@ -108,4 +105,4 @@ console.log(double.set === undefined) // true
 
 ## License
 
-[MIT](./LICENSE) License © 2022 [三咲智子](https://github.com/sxzz)
+[MIT](./LICENSE) License © 2022-PRESENT [三咲智子](https://github.com/sxzz)
