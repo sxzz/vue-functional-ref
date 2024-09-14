@@ -67,12 +67,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
-    "vue": "^3.2.0"
-  },
-  "peerDependenciesMeta": {
-    "vue": {
-      "optional": true
-    }
+    "vue": "^3.5.0"
   },
   "dependencies": {
     "@rollup/pluginutils": "^5.1.0"
