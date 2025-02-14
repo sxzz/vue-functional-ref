@@ -1,4 +1,4 @@
-import { normalizePath } from '@rollup/pluginutils'
+import { normalizePath } from 'unplugin-utils'
 import { IMPORTER_RE } from './common'
 import type { Plugin } from 'esbuild'
 

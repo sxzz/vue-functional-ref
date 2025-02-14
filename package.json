@@ -71,7 +71,7 @@
     "vue": "^3.5.0"
   },
   "dependencies": {
-    "@rollup/pluginutils": "^5.1.4"
+    "unplugin-utils": "^0.2.4"
   },
   "devDependencies": {
     "@sxzz/eslint-config": "^5.1.1",
