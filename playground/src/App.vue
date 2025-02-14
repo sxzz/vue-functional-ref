@@ -6,7 +6,6 @@ const obj = ref({ name: 'sxzz', age: 18 })
 
 function inc() {
   count.set(count() + 1)
-  // eslint-disable-next-line no-console
   console.info('double:', double())
 
   obj.mutate((obj) => obj.age++)
