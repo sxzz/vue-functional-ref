@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2022",
+    "target": "esnext",
     "lib": ["es2022"],
-    "module": "esnext",
+    "moduleDetection": "force",
+    "module": "preserve",
     "moduleResolution": "node",
     "paths": {
       "@vue/reactivity": ["./types.d.ts"]
@@ -11,7 +12,11 @@
     "types": ["node"],
     "strict": true,
     "noUnusedLocals": true,
+    "declaration": true,
+    "isolatedDeclarations": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
   "include": ["src", "tests"]

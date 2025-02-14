@@ -1,1 +1,1 @@
-export const IMPORTER_RE = /vue-functional-ref\/dist\/index\.m?js$/
+export const IMPORTER_RE: RegExp = /vue-functional-ref\/dist\/index\.m?js$/
