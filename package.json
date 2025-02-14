@@ -1,7 +1,7 @@
 {
   "name": "vue-functional-ref",
   "version": "0.6.0",
-  "packageManager": "pnpm@9.10.0",
+  "packageManager": "pnpm@10.4.0",
   "description": "Functional-style refs for Vue",
   "license": "MIT",
   "files": [
@@ -71,27 +71,27 @@
     "vue": "^3.5.0"
   },
   "dependencies": {
-    "@rollup/pluginutils": "^5.1.0"
+    "@rollup/pluginutils": "^5.1.4"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^4.2.0",
-    "@sxzz/prettier-config": "^2.0.2",
-    "@types/node": "^22.5.5",
-    "@vue/reactivity": "^3.5.5",
-    "@vue/shared": "^3.5.5",
-    "bumpp": "^9.5.2",
-    "esbuild": "^0.23.1",
-    "eslint": "^9.10.0",
-    "expect-type": "^1.0.0",
-    "fast-glob": "^3.3.2",
-    "prettier": "^3.3.3",
-    "rollup": "^4.21.3",
-    "tsup": "^8.2.4",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.5",
-    "vitest": "^2.1.1",
-    "vue": "^3.5.5"
+    "@sxzz/eslint-config": "^5.1.1",
+    "@sxzz/prettier-config": "^2.2.0",
+    "@types/node": "^22.13.4",
+    "@vue/reactivity": "^3.5.13",
+    "@vue/shared": "^3.5.13",
+    "bumpp": "^10.0.3",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.20.1",
+    "expect-type": "^1.1.0",
+    "fast-glob": "^3.3.3",
+    "prettier": "^3.5.1",
+    "rollup": "^4.34.6",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5",
+    "vue": "^3.5.13"
   },
   "engines": {
     "node": ">=18.12.0"
