@@ -1,6 +1,6 @@
 {
   "name": "vue-functional-ref",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "packageManager": "pnpm@10.5.2",
   "description": "Functional-style refs for Vue",
   "type": "module",
