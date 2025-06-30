@@ -61,7 +61,7 @@
     "unplugin-utils": "^0.2.4"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^5.2.0",
+    "@sxzz/eslint-config": "^7.0.4",
     "@sxzz/prettier-config": "^2.2.1",
     "@types/node": "^22.13.9",
     "@vue/reactivity": "^3.5.13",
