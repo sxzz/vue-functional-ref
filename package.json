@@ -15,24 +15,12 @@
   "module": "./dist/index.js",
   "types": "./types.d.ts",
   "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    },
-    "./vite": {
-      "require": "./dist/vite.cjs",
-      "import": "./dist/vite.js"
-    },
-    "./rollup": {
-      "require": "./dist/rollup.cjs",
-      "import": "./dist/rollup.js"
-    },
-    "./esbuild": {
-      "require": "./dist/esbuild.cjs",
-      "import": "./dist/esbuild.js"
-    },
+    ".": "./dist/index.js",
+    "./esbuild": "./dist/esbuild.js",
+    "./rollup": "./dist/rollup.js",
+    "./vite": "./dist/vite.js",
     "./types": "./types.d.ts",
-    "./*": "./*"
+    "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
