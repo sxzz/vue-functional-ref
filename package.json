@@ -5,12 +5,16 @@
   "description": "Functional-style refs for Vue",
   "type": "module",
   "license": "MIT",
+  "homepage": "https://github.com/sxzz/vue-functional-ref#readme",
+  "bugs": {
+    "url": "https://github.com/sxzz/vue-functional-ref/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxzz/vue-functional-ref.git"
+  },
   "author": "Kevin Deng <sxzz@sxzz.moe>",
   "funding": "https://github.com/sponsors/sxzz",
-  "files": [
-    "dist",
-    "types.d.ts"
-  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./types.d.ts",
