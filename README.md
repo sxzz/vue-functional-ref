@@ -1,6 +1,8 @@
-# vue-functional-ref [![npm](https://img.shields.io/npm/v/vue-functional-ref.svg)](https://npmjs.com/package/vue-functional-ref)
+# vue-functional-ref
 
-[![Unit Test](https://github.com/sxzz/vue-functional-ref/actions/workflows/unit-test.yml/badge.svg)](https://github.com/sxzz/vue-functional-ref/actions/workflows/unit-test.yml)
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Unit Test][unit-test-src]][unit-test-href]
 
 Functional-style refs for Vue. Inspired by [@antfu](https://github.com/antfu).
 
@@ -106,3 +108,12 @@ console.log(double.set === undefined) // true
 ## License
 
 [MIT](./LICENSE) License © 2022-PRESENT [Kevin Deng](https://github.com/sxzz)
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/vue-functional-ref.svg
+[npm-version-href]: https://npmjs.com/package/vue-functional-ref
+[npm-downloads-src]: https://img.shields.io/npm/dm/vue-functional-ref
+[npm-downloads-href]: https://www.npmcharts.com/compare/vue-functional-ref?interval=30
+[unit-test-src]: https://github.com/sxzz/vue-functional-ref/actions/workflows/unit-test.yml/badge.svg
+[unit-test-href]: https://github.com/sxzz/vue-functional-ref/actions/workflows/unit-test.yml
