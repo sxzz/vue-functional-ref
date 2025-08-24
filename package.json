@@ -15,6 +15,10 @@
   },
   "author": "Kevin Deng <sxzz@sxzz.moe>",
   "funding": "https://github.com/sponsors/sxzz",
+  "files": [
+    "dist",
+    "types.d.ts"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./types.d.ts",
