@@ -62,7 +62,7 @@
     "@types/node": "^24.3.0",
     "@vue/reactivity": "^3.5.19",
     "@vue/shared": "^3.5.19",
-    "bumpp": "^10.2.3",
+    "bumpp": "^11.0.0",
     "esbuild": "^0.25.9",
     "eslint": "^9.34.0",
     "expect-type": "^1.2.2",
