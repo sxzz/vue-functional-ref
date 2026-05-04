@@ -17,7 +17,7 @@ import {
   watchEffect,
 } from 'vue'
 import type * as proxyType from '@vue/reactivity'
-import type * as vueReactivityType from '@vue/reactivity/dist/reactivity'
+import type * as vueReactivityType from '@vue/reactivity/dist/reactivity.d.ts'
 import type * as vue from 'vue'
 
 const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
@@ -130,7 +130,7 @@ test('customRef', () => {
       track()
       return value
     },
-    set(newValue) {
+    set(newValue: number) {
       trigger()
       value = newValue
     },

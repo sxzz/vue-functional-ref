@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/method-signature-style */
 
-export type * from '@vue/reactivity/dist/reactivity'
+export * from '@vue/reactivity/dist/reactivity.d.ts'
 
-declare module '@vue/reactivity/dist/reactivity' {
+declare module '@vue/reactivity/dist/reactivity.d.ts' {
   export interface Ref<T = any, S = T> {
     (): T
     set(value: T): void
