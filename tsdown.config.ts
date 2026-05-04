@@ -6,7 +6,7 @@ export default lib(
   },
   {
     deps: {
-      neverBundle: ['@vue/reactivity', 'vite', 'esbuild', 'rollup'],
+      neverBundle: ['@vue/reactivity', 'vite', 'esbuild', 'rollup', 'rolldown'],
     },
   },
 )

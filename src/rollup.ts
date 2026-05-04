@@ -4,14 +4,17 @@ import type { Plugin } from 'rollup'
 
 const rollup = (): Plugin => ({
   name: 'vue-functional-ref',
-  resolveId(id, importer) {
-    if (id !== '@vue/reactivity') return
-    if (importer) {
-      const normalizedImporter = normalizePath(importer)
-      if (IMPORTER_RE.test(normalizedImporter)) return
-    }
-
-    return this.resolve('vue-functional-ref')
+  resolveId: {
+    filter: {
+      id: /@vue\/reactivity/,
+    },
+    handler(id, importer) {
+      if (importer) {
+        const normalizedImporter = normalizePath(importer)
+        if (IMPORTER_RE.test(normalizedImporter)) return
+      }
+      return this.resolve('vue-functional-ref')
+    },
   },
 })
 export default rollup
