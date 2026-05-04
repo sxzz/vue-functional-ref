@@ -2,7 +2,7 @@ import esbuildPlugin from './esbuild'
 import rollupPlugin from './rollup'
 import type { Plugin } from 'vite'
 
-export default (): Plugin => ({
+const vite = (): Plugin => ({
   ...(rollupPlugin() as any),
   enforce: 'pre',
   config() {
@@ -15,3 +15,4 @@ export default (): Plugin => ({
     }
   },
 })
+export default vite

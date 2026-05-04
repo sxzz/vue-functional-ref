@@ -4,7 +4,7 @@
     "lib": ["es2022"],
     "moduleDetection": "force",
     "module": "preserve",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "paths": {
       "@vue/reactivity": ["./types.d.ts"]
     },
@@ -13,8 +13,8 @@
     "strict": true,
     "noUnusedLocals": true,
     "declaration": true,
-    "isolatedDeclarations": true,
     "esModuleInterop": true,
+    "isolatedDeclarations": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true

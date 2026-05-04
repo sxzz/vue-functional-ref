@@ -1,2 +1,4 @@
 packages:
   - playground
+allowBuilds:
+  esbuild: false

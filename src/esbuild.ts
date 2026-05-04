@@ -2,7 +2,7 @@ import { normalizePath } from 'unplugin-utils'
 import { IMPORTER_RE } from './common'
 import type { Plugin } from 'esbuild'
 
-export default (): Plugin => ({
+const esbuild = (): Plugin => ({
   name: 'vue-functional-ref',
   setup(build) {
     build.onResolve(
@@ -18,3 +18,4 @@ export default (): Plugin => ({
     )
   },
 })
+export default esbuild

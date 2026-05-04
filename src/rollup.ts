@@ -2,7 +2,7 @@ import { normalizePath } from 'unplugin-utils'
 import { IMPORTER_RE } from './common'
 import type { Plugin } from 'rollup'
 
-export default (): Plugin => ({
+const rollup = (): Plugin => ({
   name: 'vue-functional-ref',
   resolveId(id, importer) {
     if (id !== '@vue/reactivity') return
@@ -14,3 +14,4 @@ export default (): Plugin => ({
     return this.resolve('vue-functional-ref')
   },
 })
+export default rollup

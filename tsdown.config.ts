@@ -1,6 +1,12 @@
-import { defineConfig } from 'tsdown'
+import { lib } from 'tsdown-preset-sxzz'
 
-export default defineConfig({
-  entry: ['./src/*.ts', '!./src/common.ts'],
-  external: ['@vue/reactivity', '@vue/shared'],
-})
+export default lib(
+  {
+    entry: ['./src/*.ts', '!./src/common.ts'],
+  },
+  {
+    deps: {
+      neverBundle: ['@vue/reactivity', 'vite', 'esbuild', 'rollup'],
+    },
+  },
+)
