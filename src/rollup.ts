@@ -5,7 +5,7 @@ const rollup = (): Plugin => ({
   name: 'vue-functional-ref',
   resolveId: {
     filter: {
-      id: /@vue\/reactivity/,
+      id: /^@vue\/reactivity$/,
     },
     handler(id, importer) {
       if (importer) {
