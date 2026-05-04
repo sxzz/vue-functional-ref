@@ -1,7 +1,7 @@
 {
   "name": "vue-functional-ref",
   "type": "module",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "packageManager": "pnpm@11.0.4",
   "description": "Functional-style refs for Vue",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
