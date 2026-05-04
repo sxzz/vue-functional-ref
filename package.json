@@ -45,9 +45,6 @@
   "peerDependencies": {
     "vue": "^3.5.0"
   },
-  "dependencies": {
-    "unplugin-utils": "^0.3.1"
-  },
   "devDependencies": {
     "@sxzz/eslint-config": "^8.0.0",
     "@sxzz/prettier-config": "^2.3.1",

@@ -1,5 +1,4 @@
-import { normalizePath } from 'unplugin-utils'
-import { IMPORTER_RE } from './common'
+import { IMPORTER_RE, slash } from './common'
 import type { Plugin } from 'rollup'
 
 const rollup = (): Plugin => ({
@@ -10,7 +9,7 @@ const rollup = (): Plugin => ({
     },
     handler(id, importer) {
       if (importer) {
-        const normalizedImporter = normalizePath(importer)
+        const normalizedImporter = slash(importer)
         if (IMPORTER_RE.test(normalizedImporter)) return
       }
       return this.resolve('vue-functional-ref')

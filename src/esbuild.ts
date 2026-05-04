@@ -1,5 +1,4 @@
-import { normalizePath } from 'unplugin-utils'
-import { IMPORTER_RE } from './common'
+import { IMPORTER_RE, slash } from './common'
 import type { Plugin } from 'esbuild'
 
 const esbuild = (): Plugin => ({
@@ -8,7 +7,7 @@ const esbuild = (): Plugin => ({
     build.onResolve(
       { filter: /^@vue\/reactivity$/, namespace: 'file' },
       ({ importer, kind }) => {
-        const normalizedImporter = normalizePath(importer)
+        const normalizedImporter = slash(importer)
         if (IMPORTER_RE.test(normalizedImporter)) return
 
         return build.resolve('vue-functional-ref', {
