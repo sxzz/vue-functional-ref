@@ -15,6 +15,7 @@
   "bugs": {
     "url": "https://github.com/sxzz/vue-functional-ref/issues"
   },
+  "sideEffects": false,
   "exports": {
     ".": "./dist/index.js",
     "./esbuild": "./dist/esbuild.js",
